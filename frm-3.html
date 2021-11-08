@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <title>Teste Bruno Gomes!</title>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">BPM Office</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+    <div class="container">
+        
+        <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nome-completo">Nome Completo</label>
+                <input type="text" class="form-control" id="nome-completo" placeholder="Nome Completo">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="data-nascimento">Data de Nascimento</label>
+                <input type="text" class="form-control" id="data-nascimento" placeholder="00/00/0000">
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="cpf">CPF</label>
+                  <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="celular">Celular</label>
+                  <input type="text" class="form-control" id="celular" placeholder="(00) 0 0000-0000">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="email">E-mail</label>
+                  <input type="text" class="form-control" id="email" placeholder="E-mail">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="cep">CEP</label>
+                  <input type="text" class="form-control" id="cep" placeholder="000.00-000">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="logradouro">Logradouro</label>
+                  <input type="text" class="form-control" id="logradouro" placeholder="Logradouro">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="numero">Número</label>
+                  <input type="text" class="form-control" id="numero" placeholder="Número">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="complemento">Complemento</label>
+                  <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="bairro">Bairro</label>
+                  <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="cidade">Cidade</label>
+                  <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="uf">UF</label>
+                  <input type="text" class="form-control" id="uf" placeholder="UF">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="descricao-bio">Descrição (Bio)</label>
+                  <input type="text" class="form-control" id="descricao-bio" placeholder="Descrição (Bio)">
+                </div>
+            </div>
+
+            <a id="bt-salvar-formulario" class="btn btn-primary">Salvar Formulário</a>
+          </form>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://unpkg.com/jquery@3.2.1/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <!-- Lib toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- Lib axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <!-- Lib mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script>
+
+        $( "#cep" ).blur(function() {
+        
+            let cep = $( "#cep" ).val();
+            let dadosCep = getCep(cep);
+        });
+
+        function getCep(cep) {
+
+            axios({
+                method: 'get',
+                url: 'https://api.postmon.com.br/v1/cep/' + cep,
+                responseType: 'stream'
+            })
+            .then(function (response) {
+                preencherCamposCep(response.data);
+            });
+        }
+
+        function preencherCamposCep(dadosBuscaCep) {
+
+            // $( "#cep" ).val();
+            $( "#logradouro" ).val(dadosBuscaCep.logradouro);
+            $( "#bairro" ).val(dadosBuscaCep.bairro);
+            $( "#cidade" ).val(dadosBuscaCep.cidade);
+            $( "#uf" ).val(dadosBuscaCep.estado);
+        }
+
+        $( "#bt-salvar-formulario" ).click(function() {
+            
+            let nome = $( "#nome-completo" ).val();
+
+            if (nome == "") {
+                toastr.warning("Campo Nome esta Vazio!!!");
+                return;
+            }
+
+	
+      	    let dataNascimento = $( "#data-nascimento" ).val();
+	
+            if (dataNascimento == "") {
+                toastr.warning("Campo Data de Nascimento esta Vazia!!!")
+                return;
+            }
+
+
+            let cpf = $( "#cpf" ).val();
+	
+            if (cpf == "") {
+                toastr.warning("Campo CPF esta Vazio!!!")
+                return;
+            }
+
+
+            let celular = $( "#celular" ).val();
+        
+            if (celular == "") {
+                toastr.warning("Campo Celular esta Vazio!!!")
+                return;
+            }
+
+
+            let email = $( "#email" ).val();
+	
+            if (email == "") {
+                toastr.warning("Campo Email esta Vazio!!!")
+                return;         
+            }
+
+
+            let cep = $( "#cep" ).val();
+	
+            if (cep == "") {
+                toastr.warning("Campo CEP esta Vazio!!!")
+                return;
+            }
+
+            let logradouro = $( "#logradouro" ).val();
+	
+            if (logradouro == "") {
+                toastr.warning("Campo Logradouro esta Vazio!!!")
+                return;
+            }
+
+            let numero = $( "#numero" ).val();
+	
+            if (numero == "") {
+                toastr.warning("Campo Numero esta Vazio!!!")
+                return;
+            }
+
+            let bairro = $( "#bairro" ).val();
+	
+            if (bairro == "") {
+                toastr.warning("Campo Bairro esta Vazio!!!")
+                return;
+            }
+
+            let cidade = $( "#cidade" ).val();
+        
+            if (cidade == "") {
+                toastr.warning("Campo Cidade esta Vazio!!!")
+                return;
+            }
+
+            let uf = $( "#uf" ).val();
+        
+            if (uf == "") {
+                toastr.warning("Campo UF esta Vazio!!!")
+                return;
+            }
+
+            toastr.success("Formulário ok!");
+            
+            console.log("Dados corretos: " + nome + "\n " + dataNascimento + "\n " + cpf + "\n " + celular + "\n " + email + "\n "
+                  + cep + "\n " + logradouro + "\n " + numero + "\n " + complemento + "\n " + bairro + "\n " + cidade + "\n " + uf);
+
+          });
+
+        $(document).ready(function(){
+
+            $( "#data-nascimento" ).mask('00/00/0000');
+            $( "#cep" ).mask('00000-000');
+            $( "#celular" ).mask('(00)0 0000-0000');
+            $( "#cpf" ).mask('000.000.000-00');
+            $( "#uf" ).mask('AA');
+            $( "#numero" ).mask('00000');
+        });
+
+    </script>
+
+</body>
+</html>
